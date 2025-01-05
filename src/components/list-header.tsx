@@ -12,8 +12,10 @@ import {
   View,
 } from "react-native";
 import { CATEGORIES } from "../../assets/mockApis/categories";
+import { useCartStore } from "../store/cart-store";
 
 const ListHeader = () => {
+  const {getItemCount} = useCartStore();
   return (
     <View style={styles.headerContainer}>
       {/* Header Top */}
@@ -47,7 +49,7 @@ const ListHeader = () => {
                   />
 
                   <View style={styles.badgeContainer}>
-                    <Text style={styles.badgeText}>{1}</Text>
+                    <Text style={styles.badgeText}>{getItemCount()}</Text>
                   </View>
                 </View>
               )}
