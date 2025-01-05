@@ -6,7 +6,7 @@ const OrdersLayout = () => {
   return (
     <Stack>
       <Stack.Screen
-        name="orders"
+        name="index"
         options={{
           headerShown: false,
         }}

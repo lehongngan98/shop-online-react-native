@@ -1,7 +1,8 @@
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 // TabBarIcon component to display icons in the tab bar
 const TabBarIcon = (props: {
@@ -14,7 +15,7 @@ const TabBarIcon = (props: {
 // TabsLayout component to display the tabs layout
 const TabsLayout = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView edges={['top']} style={styles.container}>
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: "#4bf",
