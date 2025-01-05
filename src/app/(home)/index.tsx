@@ -1,14 +1,36 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { PRODUCTS } from "../../../assets/mockApis/products";
+import { ListHeader, ProductListItem } from "../../components";
 
 const index = () => {
   return (
     <View>
-      <Text>index</Text>
+      <FlatList
+        data={PRODUCTS}
+        keyExtractor={(item) => item.id.toString()}
+        numColumns={2}
+        ListHeaderComponent={ListHeader}
+        renderItem={({ item }) => ProductListItem({ product: item })}
+        contentContainerStyle={styles.flatListContent}
+        columnWrapperStyle={styles.flatListColumnWrapper}
+        style={styles.flatListContainer}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default index
+export default index;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  flatListContainer: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+  },
+  flatListContent: {
+    paddingBottom: 20,
+  },
+  flatListColumnWrapper: {
+    justifyContent: "space-between",
+  },
+});
